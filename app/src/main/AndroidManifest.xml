@@ -24,9 +24,6 @@
             android:name=".utils.AlarmReceiver"
             android:enabled="true" />
 
-        <service
-            android:name=".utils.NotificationService"
-            android:enabled="true" />
 
     </application>
 

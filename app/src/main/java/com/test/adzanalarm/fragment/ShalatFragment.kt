@@ -9,14 +9,12 @@ import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.os.CountDownTimer
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.test.adzanalarm.R
 import com.test.adzanalarm.databinding.FragmentShalatBinding
-import com.test.adzanalarm.utils.NotificationService
 import com.test.adzanalarm.utils.NotificationUtils
 import java.text.SimpleDateFormat
 import java.util.*
@@ -180,12 +178,13 @@ class ShalatFragment : Fragment() {
 
             // Create the NotificationChannel, but only on API 26+ because
             // the NotificationChannel class is new and not in the support library
-
+            val CHANNEL_ID = "1"
+            val CHANNEL_NAME = "Sample Notification"
 
             val notificationManager:NotificationManager = activity?.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
             val importance = NotificationManager.IMPORTANCE_HIGH
-            val notificationChannel = NotificationChannel(NotificationService.CHANNEL_ID, NotificationService.CHANNEL_NAME, importance)
+            val notificationChannel = NotificationChannel(CHANNEL_ID, CHANNEL_NAME, importance)
             notificationChannel.enableVibration(true)
             notificationChannel.setShowBadge(true)
             notificationChannel.enableLights(true)

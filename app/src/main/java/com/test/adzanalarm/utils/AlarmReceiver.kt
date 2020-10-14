@@ -23,6 +23,8 @@ class AlarmReceiver: BroadcastReceiver() {
         val notifyIntent = Intent(context, MainActivity::class.java)
         var title = "Sudah Masuk Waktu "+titleIntent
         val message = "Solat dulu yuk"
+        val CHANNEL_ID = "1"
+        val CHANNEL_NAME = "Sample Notification"
 
         notifyIntent.putExtra("title", title)
         notifyIntent.putExtra("message", message)
@@ -38,7 +40,7 @@ class AlarmReceiver: BroadcastReceiver() {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 
-            var mNotification = NotificationCompat.Builder(context, NotificationService.CHANNEL_ID)
+            var mNotification = NotificationCompat.Builder(context, CHANNEL_ID)
                 // Set the intent that will fire when the user taps the notification
                 .setContentIntent(pendingIntent)
                 .setSmallIcon(R.mipmap.ic_masjid)
