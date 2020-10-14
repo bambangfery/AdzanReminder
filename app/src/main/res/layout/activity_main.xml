@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <FrameLayout
+            android:layout_above="@+id/ly_Nav"
+            android:layout_marginBottom="-4dp"
+            android:background="@color/whitef1"
+            android:id="@+id/frame_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:animateLayoutChanges="false"
+            android:visibility="gone">
+
+        </FrameLayout>
+
+        <com.test.adzanalarm.view.LockableViewPager
+            android:id="@+id/viewpager"
+            android:layout_above="@+id/ly_Nav"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="-4dp"
+            android:layout_alignParentTop="true"
+            android:background="@color/whitef1"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+
+        <LinearLayout
+            android:id="@+id/ly_Nav"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white">
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/navigation"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:menu="@menu/menu_item_bottom_navigation"
+                app:itemIconTint="@color/basic80"
+                app:itemTextColor="@color/selected_bottom_navigation"
+                app:elevation="0dp"
+                app:labelVisibilityMode="labeled"
+                android:background="@color/white"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</layout>

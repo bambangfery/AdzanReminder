@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_item1"
+        android:icon="@mipmap/home2"
+        android:title="Home"
+        android:numericShortcut="1" />
+    <item
+        android:id="@+id/action_item2"
+        android:icon="@mipmap/shalat2"
+        android:title="Shalat"
+        android:numericShortcut="2"/>
+
+    <item
+        android:id="@+id/action_item3"
+        android:icon="@mipmap/quran2"
+        android:title="Quran"
+        android:numericShortcut="3"/>
+
+    <item
+        android:id="@+id/action_item4"
+        android:icon="@mipmap/profile2"
+        android:title="Profile"
+        android:numericShortcut="4"/>
+</menu>

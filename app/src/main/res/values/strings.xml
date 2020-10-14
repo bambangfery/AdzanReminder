@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Adzan Alarm</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="body_notif">Solat dulu yuk</string>
+</resources>
