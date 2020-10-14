@@ -1,6 +1,12 @@
 package com.test.adzanalarm.fragment
 
 import android.annotation.SuppressLint
+import android.app.Notification
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.content.Context
+import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.util.Log
@@ -10,6 +16,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.test.adzanalarm.R
 import com.test.adzanalarm.databinding.FragmentShalatBinding
+import com.test.adzanalarm.utils.NotificationService
 import com.test.adzanalarm.utils.NotificationUtils
 import java.text.SimpleDateFormat
 import java.util.*
@@ -67,6 +74,7 @@ class ShalatFragment : Fragment() {
         }.start()
 
         if (!mNotified) {
+            createNotifChannel()
             activity?.let { NotificationUtils().setNotification(Calendar.getInstance().timeInMillis + diff, it, title) }
         }
 
@@ -165,5 +173,26 @@ class ShalatFragment : Fragment() {
         binding.lyAsar.setBackgroundResource(R.drawable.bg_round_basic50)
         binding.lyMaghrib.setBackgroundResource(R.drawable.bg_round_basic50)
         binding.lyIsya.setBackgroundResource(R.drawable.bg_round_basic50)
+    }
+
+    private fun createNotifChannel(){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+
+            // Create the NotificationChannel, but only on API 26+ because
+            // the NotificationChannel class is new and not in the support library
+
+
+            val notificationManager:NotificationManager = activity?.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+
+            val importance = NotificationManager.IMPORTANCE_HIGH
+            val notificationChannel = NotificationChannel(NotificationService.CHANNEL_ID, NotificationService.CHANNEL_NAME, importance)
+            notificationChannel.enableVibration(true)
+            notificationChannel.setShowBadge(true)
+            notificationChannel.enableLights(true)
+            notificationChannel.lightColor = Color.parseColor("#e8334a")
+            notificationChannel.description = getString(R.string.body_notif)
+            notificationChannel.lockscreenVisibility = Notification.VISIBILITY_PUBLIC
+            notificationManager.createNotificationChannel(notificationChannel)
+        }
     }
 }
